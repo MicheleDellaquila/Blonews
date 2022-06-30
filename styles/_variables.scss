@@ -1,0 +1,23 @@
+/* variable */
+:root {
+  --color-bg: #ffffff;
+  --color-title: #1d1d1d;
+  --color-text: #9aa6b1;
+  --color-primary: #1248de;
+  --color-secondary: #dc4b4c;
+  --color-title-fontFamily: 'Orienta', sans-serif;
+  --color-text-fontFamily: 'Questrial', sans-serif;
+  --width-container: 1384px;
+  --padding-container: 16px;
+}
+
+/* grid system */
+$columns: 12;
+$breakpoints: (
+  'xs': 0,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1384px,
+) !default;
