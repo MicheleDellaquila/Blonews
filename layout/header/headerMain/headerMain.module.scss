@@ -1,0 +1,57 @@
+$border-color: #9aa6b1;
+
+.HeaderMain {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-top: 1px solid rgba($color: $border-color, $alpha: 0.15);
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    @media (max-width: 575px) {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__searchbar {
+    position: relative;
+
+    @media (max-width: 575px) {
+      width: 100%;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    color: var(--color-title);
+  }
+
+  &__input {
+    padding: 12px 40px;
+    border-radius: 16px;
+    border: 1px solid rgba($color: $border-color, $alpha: 0.2);
+    outline: none;
+    font-family: var(--color-text-fontFamily);
+    font-size: 13px;
+    line-height: 1;
+
+    @media (max-width: 575px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 575px) {
+    padding: 16px 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

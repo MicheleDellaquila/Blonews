@@ -9,19 +9,20 @@
   max-width: var(--width-container);
   margin-left: auto;
   margin-right: auto;
-  padding: var(--padding-container);
+  padding-left: var(--padding-container);
+  padding-right: var(--padding-container);
 }
 
 /* row */
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -1 * var(--padding-container);
-  margin-right: -1 * var(--padding-container);
+  margin-left: calc(-1 * var(--padding-container));
+  margin-right: calc(-1 * var(--padding-container));
 }
 
 /* column creation */
-@each $property, $key in $breakpoints__col {
+@each $property, $key in $breakpoints {
   @for $i from 1 through $columns {
     @media (min-width: $key) {
       .col-#{$property}-#{$i} {

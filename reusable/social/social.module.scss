@@ -1,0 +1,27 @@
+.Social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: var(--color-bg);
+    box-shadow: 0 8px 24px rgba($color: #e0e0e0, $alpha: 0.3),
+      0 4px 12px rgba($color: #e0e0e0, $alpha: 0.15);
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__image {
+    width: 16px;
+    height: 16px;
+  }
+}
