@@ -9,4 +9,10 @@
     color: var(--color-title);
     line-height: 1;
   }
+
+  &__caption__mobileHidden {
+    @media (max-width: 575px) {
+      display: none;
+    }
+  }
 }

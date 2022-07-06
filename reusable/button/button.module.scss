@@ -22,7 +22,7 @@
 
   &-primary:disabled {
     $bg-color: #1248de;
-    background-color: rgba($color: $bg-color, $alpha: 0.3);
+    background-color: rgba($color: $bg-color, $alpha: 0.5);
     pointer-events: none;
     cursor: not-allowed;
   }
@@ -41,7 +41,7 @@
 
   &-secondary:disabled {
     $bg-color: #dc4b4c;
-    background-color: rgba($color: $bg-color, $alpha: 0.3);
+    background-color: rgba($color: $bg-color, $alpha: 0.5);
     pointer-events: none;
   }
 

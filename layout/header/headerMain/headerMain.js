@@ -4,6 +4,7 @@ import Button from '../../../reusable/button/button';
 import { useRouter } from 'next/router';
 import { HiMenuAlt3 } from 'react-icons/hi';
 import Logo from '../../../reusable/logo/logo';
+import Searchbar from '../../../components/searchbar/searchbar';
 
 const HeaderMain = () => {
   const router = useRouter();
@@ -11,18 +12,18 @@ const HeaderMain = () => {
   return (
     <div className={classes.HeaderMain}>
       <div className={classes.HeaderMain__left}>
-        <Logo />
-        <div className={classes.HeaderMain__searchbar}>
-          <BsSearch className={classes.HeaderMain__icon} />
-          <input
-            type='text'
-            placeholder='Cerca articolo'
-            className={classes.HeaderMain__input}
-          />
-        </div>
+        <Logo textMobile={false} />
+        <span className={classes.HeaderMain__searchbarBox}>
+          <Searchbar />
+        </span>
       </div>
-      <div>
-        <HiMenuAlt3 />
+      <div className={classes.HeaderMain__right}>
+        <span className={classes.HeaderMain__box}>
+          <BsSearch className={classes.HeaderMain__icon} />
+        </span>
+        <span className={classes.HeaderMain__box}>
+          <HiMenuAlt3 className={classes.HeaderMain__icon} />
+        </span>
         <Button
           size='sm'
           variant='primary'
