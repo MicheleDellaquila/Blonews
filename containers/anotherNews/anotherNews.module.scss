@@ -1,0 +1,30 @@
+.AnotherNews {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 16px;
+  overflow-y: scroll;
+
+  &__title {
+    color: var(--color-bg);
+    font-family: var(--color-title-fontFamily);
+    line-height: 1;
+  }
+
+  &__body {
+    max-height: 280px;
+  }
+
+  &::-webkit-scrollbar {
+    $border-color: #9aa6b1;
+    background-color: red;
+    border-radius: 8px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: blue;
+    -webkit-box-shadow: 0 0 8px blue;
+  }
+}

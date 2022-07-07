@@ -1,0 +1,20 @@
+.MainNews {
+  display: flex;
+  flex-direction: column;
+  max-width: 620px;
+
+  &__title {
+    font-size: 39px;
+    font-family: var(--color-title-fontFamily);
+    line-height: 1.25;
+    color: var(--color-bg);
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
+
+  &__text {
+    color: var(--color-text);
+    font-family: var(--color-text-fontFamily);
+    line-height: 1;
+  }
+}

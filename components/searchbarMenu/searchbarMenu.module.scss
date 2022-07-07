@@ -1,0 +1,39 @@
+$border-color: #9aa6b1;
+
+.SearchbarMenu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: rgba($color: $border-color, $alpha: 0.1);
+  cursor: pointer;
+
+  &__wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__icon {
+    color: var(--color-title);
+  }
+
+  &__box {
+    position: absolute;
+    background-color: var(--color-bg);
+    top: 100%;
+    max-width: 320px;
+    padding: 8px;
+    margin-top: 8px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba($color: #e0e0e0, $alpha: 0.3),
+      0 4px 12px rgba($color: #e0e0e0, $alpha: 0.15);
+  }
+
+  @media (min-width: 576px) {
+    display: none;
+  }
+}

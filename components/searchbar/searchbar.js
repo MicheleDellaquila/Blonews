@@ -2,13 +2,15 @@ import classes from './searchbar.module.scss';
 import { BsSearch } from 'react-icons/bs';
 import Button from '../../reusable/button/button';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const Searchbar = () => {
   const [text, setText] = useState('');
+  const router = useRouter();
 
   // search article
   const searchArticleHandler = () => {
-    return;
+    router.push(`/articolo/${text}`);
   };
 
   return (

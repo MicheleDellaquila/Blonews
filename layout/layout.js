@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   return (
     <Fragment>
       <Header />
-      <main className={classes.Layout}>{children}</main>
+      <main className={`${classes.Layout} container`}>{children}</main>
     </Fragment>
   );
 };

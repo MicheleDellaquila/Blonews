@@ -1,10 +1,9 @@
-import classes from './header.module.scss';
 import HeaderLinks from './headerLinks/headerLinks';
 import HeaderMain from './headerMain/headerMain';
 
 const Header = () => {
   return (
-    <header className={classes.Header}>
+    <header className='container'>
       <HeaderLinks />
       <HeaderMain />
     </header>

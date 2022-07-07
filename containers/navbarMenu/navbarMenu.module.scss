@@ -1,0 +1,23 @@
+.NavbarMenu {
+  position: relative;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__item {
+    font-size: 25px;
+
+    & > a {
+      text-decoration: none;
+      color: var(--color-title);
+      font-family: var(--color-text-fontFamily);
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
+}

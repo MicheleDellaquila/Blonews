@@ -11,6 +11,7 @@ $border-color: #9aa6b1;
     display: flex;
     align-items: center;
     gap: 16px;
+    margin-right: 8px;
   }
 
   &__searchbarBox {
@@ -25,26 +26,7 @@ $border-color: #9aa6b1;
     gap: 16px;
   }
 
-  &__box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 6px;
-    background-color: rgba($color: $border-color, $alpha: 0.1);
-    cursor: pointer;
-
-    &:first-child {
-      display: none;
-    }
-
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-
-  &__icon {
-    color: var(--color-title);
+  @media (max-width: 575px) {
+    padding: 16px 0;
   }
 }
