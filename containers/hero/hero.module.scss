@@ -13,10 +13,19 @@
   &__row {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     z-index: 1;
+    padding: 0 64px;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+      padding: 56px 32px;
+    }
+
+    @media (max-width: 575px) {
+      padding: 32px 16px;
+    }
   }
 
   &__overlay {
@@ -28,5 +37,9 @@
     height: 100%;
     background-color: rgba($color: $bg-color, $alpha: 0.3);
     border-radius: 16px;
+  }
+
+  @media (max-width: 991px) {
+    height: auto;
   }
 }

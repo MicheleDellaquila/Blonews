@@ -1,0 +1,22 @@
+.TechNews__row {
+  margin-top: 72px;
+}
+
+.TechNews__box {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+  }
+}
+
+.TechNews__title {
+  font-size: 39px;
+  font-family: var(--color-title-fontFamily);
+  color: var(--color-title);
+
+  @media (max-width: 575px) {
+    margin-bottom: 16px;
+  }
+}

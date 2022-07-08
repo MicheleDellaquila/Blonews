@@ -1,0 +1,14 @@
+.MostViewedNews__row {
+  margin-top: 72px;
+}
+
+.MostViewedNews__title {
+  font-size: 39px;
+  font-family: var(--color-title-fontFamily);
+  color: var(--color-title);
+}
+
+.MostViewedNews__column {
+  flex: 1;
+  flex-direction: column;
+}

@@ -1,0 +1,74 @@
+.Card {
+  $border-color: #9aa6b1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px 24px;
+  gap: 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba($color: #e0e0e0, $alpha: 0.3),
+    0 4px 12px rgba($color: #e0e0e0, $alpha: 0.15);
+  margin-top: 16px;
+
+  &__image {
+    border-radius: 8px;
+    height: 280px;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__title {
+    font-size: 25px;
+    line-height: 1.25;
+    font-family: var(--color-title-fontFamily);
+    color: var(--color-title);
+    max-width: 480px;
+
+    @media (max-width: 991px) {
+      max-width: none;
+    }
+  }
+
+  &__description {
+    color: var(--color-text);
+    line-height: 1.5;
+    font-family: var(--color-text-fontFamily);
+    max-width: 600px;
+
+    @media (max-width: 991px) {
+      max-width: none;
+    }
+  }
+
+  &__text {
+    color: var(--color-text);
+    font-family: var(--color-text-fontFamily);
+    line-height: 1.5;
+  }
+
+  &__link {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 991px) {
+    padding: 32px;
+  }
+
+  @media (max-width: 575px) {
+    padding: 16px;
+  }
+}

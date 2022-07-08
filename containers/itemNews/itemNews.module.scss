@@ -1,0 +1,31 @@
+.ItemNews {
+  position: relative;
+  margin-bottom: 16px;
+
+  &__title {
+    display: block;
+    font-size: 16px;
+    font-family: var(--color-title-fontFamily);
+    line-height: 1.5;
+    color: var(--color-bg);
+    margin-bottom: 16px;
+    margin-top: 8px;
+    text-decoration: none;
+  }
+
+  &__text {
+    color: var(--color-bg);
+    font-family: var(--color-text-fontFamily);
+    line-height: 1;
+    font-size: 13px;
+  }
+
+  @media (max-width: 991px) {
+    width: 50%;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 575px) {
+    width: 100%;
+  }
+}

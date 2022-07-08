@@ -1,17 +1,33 @@
 $bg-cronaca: #4f9ef8;
+$bg-tecnologia: #0cbc87;
 
 .CategoryNews {
   display: flex;
+  cursor: pointer;
+}
 
-  .CategoryNews--cronaca {
-    background-color: rgba($color: $bg-cronaca, $alpha: 0.1);
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 16px;
-    font-family: var(--color-title-fontFamily);
+.CategoryNews--cronaca {
+  background-color: rgba($color: $bg-cronaca, $alpha: 0.1);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: var(--color-title-fontFamily);
 
-    .CategoryNews__text--cronaca {
-      color: $bg-cronaca;
-    }
+  .CategoryNews__text--cronaca {
+    color: $bg-cronaca;
+    text-decoration: none;
+  }
+}
+
+.CategoryNews--tecnologia {
+  background-color: rgba($color: $bg-tecnologia, $alpha: 0.1);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: var(--color-title-fontFamily);
+
+  .CategoryNews__text--tecnologia {
+    color: $bg-tecnologia;
+    text-decoration: none;
   }
 }

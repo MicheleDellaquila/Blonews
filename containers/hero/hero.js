@@ -1,6 +1,7 @@
 import classes from './hero.module.scss';
 import MainNews from '../mainNews/mainNews';
 import AnotherNews from '../anotherNews/anotherNews';
+import Link from 'next/link';
 
 const Hero = ({ todayNews }) => {
   return (
@@ -17,9 +18,10 @@ const Hero = ({ todayNews }) => {
           author={todayNews[0].author}
           date={todayNews[0].publishedAt}
         />
-        <AnotherNews news={todayNews.splice(1, 4)} />
+        <AnotherNews news={todayNews} />
       </div>
       <div className={classes.Hero__overlay} />
+
     </div>
   );
 };
