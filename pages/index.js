@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import Banner from '../containers/banner/banner';
 import CommunityNews from '../containers/communityNews/communityNews';
 import Hero from '../containers/hero/hero';
 import MostViewedNews from '../containers/mostViewedNews/mostViewedNews';
@@ -11,6 +12,7 @@ const Home = ({ todayNews, mostViewedNews, communityNews, techNews }) => {
       <MostViewedNews news={mostViewedNews} />
       <CommunityNews news={communityNews} />
       <TechNews news={techNews} />
+      <Banner />
     </Fragment>
   );
 };
