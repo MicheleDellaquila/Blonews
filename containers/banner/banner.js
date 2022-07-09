@@ -17,7 +17,7 @@ const Banner = () => {
           <Button
             size='md'
             variant='secondary'
-            onClick={() => router.push('/signUp')}
+            onClick={() => router.push('/registrati')}
           >
             Registati
           </Button>

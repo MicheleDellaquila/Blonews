@@ -26,7 +26,7 @@ const TechNews = ({ news }) => {
       <div className='row'>
         {news?.map((item, index) => {
           return (
-            <div key={index} className='col-xs-12 col-lg-4'>
+            <div key={index} className='flex col-xs-12 col-lg-4'>
               <Card
                 title={item.title}
                 image={item.image}

@@ -1,0 +1,36 @@
+.FooterContact {
+  margin-bottom: 32px;
+
+  &__name {
+    font-size: 20px;
+    font-family: var(--color-title-fontFamily);
+    color: var(--color-title);
+    line-height: 1;
+    margin-bottom: 32px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--color-text-fontFamily);
+    cursor: pointer;
+  }
+
+  &__icon {
+    color: var(--color-title);
+    font-size: 18px;
+  }
+
+  &__text {
+    text-decoration: none;
+    color: var(--color-text);
+    line-height: 1;
+  }
+}

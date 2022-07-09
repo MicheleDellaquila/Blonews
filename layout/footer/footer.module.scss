@@ -1,0 +1,14 @@
+.Footer {
+  padding-top: 48px;
+
+  &__rights {
+    $border-color: #9aa6b1;
+    padding: 24px 0;
+    border-top: 1px solid rgba($color: $border-color, $alpha: 0.2);
+  }
+
+  &__text {
+    color: var(--color-title);
+    font-family: var(--color-title-fontFamily);
+  }
+}

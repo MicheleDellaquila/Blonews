@@ -1,0 +1,14 @@
+.FooterBio {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+
+  &__text {
+    font-size: 13px;
+    line-height: 1.5;
+    font-family: var(--color-text-fontFamily);
+    color: var(--color-text);
+    max-width: 580px;
+  }
+}

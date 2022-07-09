@@ -7,7 +7,7 @@ moment.locale('it');
 
 const Card = ({ image, title, category, description, author, date }) => {
   const titleNews = title
-    .replace(/[,'+-:]/g, ' ')
+    .replace(/[,'"’+-:%]/g, ' ')
     .split(' ')
     .join('-');
 
@@ -22,7 +22,7 @@ const Card = ({ image, title, category, description, author, date }) => {
           {author || 'Autore sconosciuto'} - {moment(date).format('LLL')}
         </p>
       </div>
-      <Link href="/articolo/[titleNews]" as={`/articolo/${titleNews}`}>
+      <Link href='/articolo/[titleNews]' as={`/articolo/${titleNews}`}>
         <a className={classes.Card__link} />
       </Link>
     </article>
