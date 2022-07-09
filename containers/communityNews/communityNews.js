@@ -23,6 +23,8 @@ const CommunityNews = ({ news }) => {
                 description={item.description}
                 author={item.author}
                 date={item.date}
+                views={item.views}
+                numComments={item.comments.length}
               />
             </div>
           );

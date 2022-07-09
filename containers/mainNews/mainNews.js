@@ -14,11 +14,11 @@ const MainNews = ({ category, title, author, date }) => {
   return (
     <div className={classes.MainNews}>
       <CategoryNews category={category.toLowerCase()} />
-      <Link href="/articolo/[titleNews]" as={`/articolo/${titleNews}`}>
+      <Link href='/articolo/[titleNews]' as={`/articolo/${titleNews}`}>
         <a className={classes.MainNews__title}>{title}</a>
       </Link>
       <p className={classes.MainNews__text}>
-        {author} - {moment(date).format('LLL')}
+        {author || 'Autore anonimo'} - {moment(date).format('LLL')}
       </p>
     </div>
   );

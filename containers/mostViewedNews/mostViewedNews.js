@@ -19,6 +19,8 @@ const MostViewedNews = ({ news }) => {
             description={news[0].description}
             author={news[0].author}
             date={news[0].date}
+            views={news[0].views}
+            numComments={news[0].comments.length}
           />
         </div>
         <div className='flex col-xs-12 col-lg-5'>
@@ -32,6 +34,8 @@ const MostViewedNews = ({ news }) => {
                   description={item.description}
                   author={item.author}
                   date={item.date}
+                  views={item.views}
+                  numComments={item.comments.length}
                 />
               );
             })}

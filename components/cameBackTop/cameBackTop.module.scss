@@ -1,0 +1,19 @@
+.ComeBackTop {
+  $bg-color: #4f9ef8;
+  position: fixed;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 24px;
+  right: 24px;
+  cursor: pointer;
+  background-color: rgba($color: $bg-color, $alpha: 0.1);
+  border-radius: 8px;
+
+  &__icon {
+    color: var(--color-primary);
+    font-size: 24px;
+  }
+}
