@@ -40,7 +40,7 @@ export async function getStaticProps() {
     return {
       redirect: {
         permanent: false,
-        destination: '/error',
+        destination: '/errore',
       },
     };
   }

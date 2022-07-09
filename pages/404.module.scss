@@ -1,0 +1,73 @@
+.NotFound {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 560px;
+
+  &__box {
+    max-width: 640px;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 49px;
+    font-family: var(--color-title-fontFamily);
+    color: var(--color-title);
+    line-height: 1.25;
+    margin-bottom: 16px;
+
+    @media (max-width: 575px) {
+      font-size: 31px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 31px;
+    font-family: var(--color-text-fontFamily);
+    color: var(--color-text);
+    line-height: 1.5;
+    margin-bottom: 32px;
+
+    @media (max-width: 575px) {
+      font-size: 20px;
+    }
+  }
+
+  &__searcboxContainer {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 575px) {
+      flex-direction: column;
+    }
+  }
+
+  &__searchbar {
+    position: relative;
+    display: flex;
+    flex: 1;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    color: var(--color-title);
+    font-size: 20px;
+  }
+
+  &__input {
+    $border-color: #9aa6b1;
+    flex: 1;
+    border: 1px solid rgba($color: $border-color, $alpha: 0.2);
+    border-radius: 6px;
+    outline: none;
+    padding: 12px 48px;
+    font-size: 20px;
+  }
+
+  @media (max-width: 575px) {
+    padding: 64px 0 16px;
+    height: auto;
+  }
+}
