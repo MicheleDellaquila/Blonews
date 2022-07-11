@@ -1,0 +1,19 @@
+.Avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  &__image {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__name {
+    color: var(--color-title);
+    font-family: var(--color-text-fontFamily);
+  }
+}

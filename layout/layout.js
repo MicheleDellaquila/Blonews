@@ -13,9 +13,8 @@ const Layout = ({ children }) => {
       <Header />
       <main className={`${classes.Layout} container`}>{children}</main>
       <Footer />
-      {router.pathname !== 'accedi' && <CameBackTop />}
-      {router.pathname !== 'registrati' && <CameBackTop />}
-      {router.pathname !== 'chi-siamo' && <CameBackTop />}
+      {router.pathname !== '/accedi' && <CameBackTop />}
+      {router.pathname !== '/registrazione' && <CameBackTop />}
     </Fragment>
   );
 };
