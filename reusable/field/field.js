@@ -9,6 +9,7 @@ const Field = ({
   onFocus,
   onChange,
   value,
+  error,
 }) => {
   return (
     <div className={classes.Field}>
@@ -22,6 +23,7 @@ const Field = ({
           onChange={onChange}
           value={value}
         />
+        {error && <p className={classes.Field__error}>{error}</p>}
         {inputIcon && (
           <span className={classes.Field__icon} onClick={onClickIcon}>
             {inputIcon}

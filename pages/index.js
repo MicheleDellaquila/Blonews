@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import ComeBackTop from '../components/cameBackTop/comeBackTop';
 import Banner from '../containers/banner/banner';
 import CommunityNews from '../containers/communityNews/communityNews';
 import Hero from '../containers/hero/hero';

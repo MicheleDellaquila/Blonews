@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Field from '../../reusable/field/field';
 import classes from './formSignUp.module.scss';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import Button from '../../reusable/button/button';
-import GoogleLogin from 'react-google-login';
 import useForm from '../../hooks/useForm';
 import { signUpForm, signUpFormSchema } from '../../utility/schemaForm';
+import { createUser } from '../../utility/httpRequests';
+import Loader from '../../reusable/loader/loader';
+import Toast from '../../reusable/toast/toast';
 
 const FormSignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loader, setLoader] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [typeMessage, setTypeMessage] = useState(null);
   const { fields, errors, changeField, clearErrorField, submitForm } =
     useForm(signUpForm);
   const iconPassword = showPassword ? (
@@ -18,106 +23,124 @@ const FormSignUp = () => {
   );
 
   // sign up user
-  const signUpUserHandler = (e) => {
+  const signUpUserHandler = async (e) => {
     e.preventDefault();
+    setLoader((prev) => !prev);
     const formHandler = submitForm(signUpFormSchema);
 
     // check if form is valid
-    if (typeof formHandler === 'function') {
-      formHandler(async () => {
-        try {
-          const response = await httpRequest(`${process.env.NEXT_PUBLIC_PATH}/signUp`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            data: JSON.stringify(fields),
-          });
-
-          // if response go to the error
-          if (response.data?.message) {
-          
-            return;
-          }
-
-          localStorage.setItem('token', JSON.stringify(response.data.token));
-          localStorage.setItem('user', JSON.stringify({});
-        } catch (e) {
-          setTypeNotification('error');
-          setMessage(e.message);
-        }
-      });
+    if (typeof formHandler !== 'function') {
+      setTypeMessage('error');
+      setMessage('Form dati non valido');
+      setLoader((prev) => !prev);
+      return;
     }
+    const formData = new FormData();
+
+    // load form data
+    for (const key in fields) {
+      formData.append(key, fields[key]);
+    }
+
+    // send http request
+    const response = await formHandler(() => createUser(formData));
+
+    // check status http
+    if (response.status !== 200) {
+      setLoader((prev) => !prev);
+      setTypeMessage('error');
+      setMessage(response.data?.message);
+      return;
+    }
+
+    // save data's user in localstorage
+    localStorage.setItem('token', JSON.stringify(response.data.token));
+    localStorage.setItem(
+      'user',
+      JSON.stringify({
+        avatar: response.data.user.avatar,
+        fullName: response.data.user.name + ' ' + response.data.user.surname,
+      }),
+    );
+    setTypeMessage('success');
+    setMessage('Utente creato con successo');
+    setLoader((prev) => !prev);
+  };
+
+  // cleat toast
+  const clearToastHandler = () => {
+    setTypeMessage(null);
+    setMessage(null);
   };
 
   return (
-    <form
-      className={classes.FormSignUp}
-      noValidate
-      onSubmit={signUpUserHandler}
-    >
-      <div className={classes.FormSignUp__row}>
-        <div className={classes.FormSignUp__col}>
-          <Field
-            label='Nome *'
-            type='text'
-            placeholder='Inserisci il tuo nome'
-            onChange={(e) => changeField('name', e.target.value)}
-            value={fields.name}
-          />
+    <Fragment>
+      <Toast type={typeMessage} message={message} onClose={clearToastHandler} />
+      <form
+        className={classes.FormSignUp}
+        onSubmit={signUpUserHandler}
+        name='avatar'
+        enctype='multipart/form-data'
+        noValidate
+      >
+        <div className={classes.FormSignUp__row}>
+          <div className={classes.FormSignUp__col}>
+            <Field
+              label='Nome *'
+              type='text'
+              placeholder='Inserisci il tuo nome'
+              onFocus={() => clearErrorField('name')}
+              onChange={(e) => changeField('name', e.target.value)}
+              value={fields.name}
+              error={errors.name?.required}
+            />
+          </div>
+          <div className={classes.FormSignUp__col}>
+            <Field
+              label='Cognome *'
+              type='text'
+              placeholder='Inserisci il tuo nome'
+              onFocus={() => clearErrorField('surname')}
+              onChange={(e) => changeField('surname', e.target.value)}
+              value={fields.surname}
+              error={errors.surname?.required}
+            />
+          </div>
         </div>
-        <div className={classes.FormSignUp__col}>
-          <Field
-            label='Cognome *'
-            type='text'
-            placeholder='Inserisci il tuo nome'
-            onChange={(e) => changeField('surname', e.target.value)}
-            value={fields.surname}
-          />
-        </div>
-      </div>
-      <Field
-        label='Email *'
-        type='email'
-        placeholder='Inserisci la tua email'
-        onChange={(e) => changeField('email', e.target.value)}
-        value={fields.email}
-      />
-      <Field
-        label='Password *'
-        inputIcon={iconPassword}
-        onClickIcon={() => setShowPassword((prev) => !prev)}
-        type={showPassword ? 'text' : 'password'}
-        placeholder='Inserisci la tua password'
-        onChange={(e) => changeField('password', e.target.value)}
-        value={fields.password}
-      />
-      <Field
-        label='Editore'
-        type='text'
-        placeholder='Inserisci il tuo editore o lascia vuoto se sei un freenlacer'
-        onChange={(e) => changeField('editorialBoard', e.target.value)}
-        value={fields.signUpForm}
-      />
-      <div className={classes.FormSignUp__footer}>
-        <Button size='md' variant='primary'>
-          Registrati
-        </Button>
-        <div className={classes.FormSignUp__box}>
-          <hr className={classes.FormSignUp__line} />
-          <p className={classes.FormSignUp__text}>OR</p>
-          <hr className={classes.FormSignUp__line} />
-        </div>
-        <GoogleLogin
-          clientId={process.env.NEXT_PUBLIC_API__KEY__GOOGLE}
-          render={(renderProps) => (
-            <Button size='md' variant='outline' onClick={renderProps.onClick}>
-              Registrati con google
-            </Button>
-          )}
+        <Field
+          label='Email *'
+          type='email'
+          placeholder='Inserisci la tua email'
+          onFocus={() => clearErrorField('email')}
+          onChange={(e) => changeField('email', e.target.value)}
+          value={fields.email}
+          error={errors.email?.required || errors.email?.isValid}
         />
-      </div>
-    </form>
+        <Field
+          label='Password *'
+          inputIcon={iconPassword}
+          onClickIcon={() => setShowPassword((prev) => !prev)}
+          type={showPassword ? 'text' : 'password'}
+          placeholder='Inserisci la tua password'
+          onFocus={() => clearErrorField('password')}
+          onChange={(e) => changeField('password', e.target.value)}
+          value={fields.password}
+          error={errors.password?.required || errors.password?.isValid}
+        />
+        <Field
+          label='Editore'
+          type='text'
+          placeholder='Inserisci il tuo editore o lascia vuoto se sei un freenlacer'
+          onChange={(e) => changeField('editorialBoard', e.target.value)}
+          value={fields.signUpForm}
+        />
+        <div className={classes.FormSignUp__footer}>
+          <Button size='md' variant='primary'>
+            {loader ? <Loader /> : 'Registrati'}
+          </Button>
+        </div>
+      </form>
+    </Fragment>
   );
 };
 

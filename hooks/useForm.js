@@ -31,7 +31,7 @@ const useForm = (initialState) => {
     }
 
     return (submitFormHandler) => {
-      submitFormHandler();
+      return submitFormHandler();
     };
   };
 

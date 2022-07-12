@@ -24,7 +24,6 @@
     $bg-color: #1248de;
     background-color: rgba($color: $bg-color, $alpha: 0.5);
     pointer-events: none;
-    cursor: not-allowed;
   }
 
   &-secondary {
@@ -55,6 +54,14 @@
   &-outline:active {
     background-color: var(--color-primary);
     color: var(--color-bg);
+  }
+
+  &-outline:disabled {
+    $bg-color: #1248de;
+    background-color: rgba($color: $bg-color, $alpha: 0.5);
+    border: none;
+    color: var(--color-bg);
+    pointer-events: none;
   }
 
   &-sm {

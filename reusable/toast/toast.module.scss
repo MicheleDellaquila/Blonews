@@ -1,0 +1,35 @@
+.Toast {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  &--success {
+    $color: #66bb6a;
+    background-color: $color;
+  }
+
+  &--error {
+    background-color: var(--color-secondary);
+  }
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+  }
+
+  &__text {
+    color: var(--color-bg);
+    font-family: var(--color-text-fontFamily);
+  }
+
+  &__boxIcon {
+    display: flex;
+  }
+
+  &__icon > path {
+    stroke: var(--color-bg);
+    cursor: pointer;
+  }
+}

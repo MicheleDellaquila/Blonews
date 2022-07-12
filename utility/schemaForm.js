@@ -1,7 +1,11 @@
+import Blob from "cross-blob"
+
+// regex
 const emailRe =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 export const signUpForm = {
+  avatar: new Blob(['user.png'], { type: 'image/png' }),
   name: '',
   surname: '',
   email: '',

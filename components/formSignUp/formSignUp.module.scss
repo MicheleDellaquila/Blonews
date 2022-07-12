@@ -13,24 +13,6 @@
   &__footer {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-  }
-
-  &__box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  &__text {
-    color: var(--color-text);
-    font-family: var(--color-text-fontFamily);
-  }
-
-  &__line {
-    $border-color: #c8c9cf;
-    flex: 1;
-    border-color: rgba($color: $border-color, $alpha: 0.2);
   }
 
   @media (max-width: 575px) {

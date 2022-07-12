@@ -1,6 +1,6 @@
+import classes from './index.module.scss';
 import Link from 'next/link';
 import FormSignUp from '../../components/formSignUp/formSignUp';
-import classes from './index.module.scss';
 
 const SignUp = () => {
   return (

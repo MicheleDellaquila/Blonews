@@ -37,6 +37,13 @@
     }
   }
 
+  &__error {
+    margin-top: 8px;
+    color: var(--color-secondary);
+    font-family: var(--color-text-fontFamily);
+    font-size: 13px;
+  }
+
   &__icon {
     display: inline-flex;
     position: absolute;
