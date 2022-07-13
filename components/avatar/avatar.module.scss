@@ -1,0 +1,10 @@
+.Avatar {
+  position: relative;
+
+  &__image {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+}

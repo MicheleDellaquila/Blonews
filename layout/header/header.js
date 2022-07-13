@@ -1,5 +1,5 @@
 import HeaderLinks from '../../containers/headerLinks/headerLinks';
-import HeaderMain from '../../containers/headerMain/headerMain';
+import HeaderMain from '../../components/headerMain/headerMain';
 
 const Header = () => {
   return (

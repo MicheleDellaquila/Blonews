@@ -1,22 +1,22 @@
 import { Fragment, useContext, useEffect, useState } from 'react';
+import classes from './formSignIn.module.scss';
 import Field from '../../reusable/field/field';
-import classes from './formSignUp.module.scss';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import Button from '../../reusable/button/button';
 import useForm from '../../hooks/useForm';
-import { signUpForm, signUpFormSchema } from '../../utility/schemaForm';
-import { createUser } from '../../utility/httpRequests';
+import { signInForm, signInFormSchema } from '../../utility/schemaForm';
+import { loginUser } from '../../utility/httpRequests';
 import Loader from '../../reusable/loader/loader';
 import Toast from '../../reusable/toast/toast';
 import { User } from '../../context/userContenxt';
 
-const FormSignUp = () => {
+const formSignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loader, setLoader] = useState(false);
   const [message, setMessage] = useState(null);
   const [typeMessage, setTypeMessage] = useState(null);
   const { fields, errors, changeField, clearErrorField, submitForm } =
-    useForm(signUpForm);
+    useForm(signInForm);
   const { updateUser } = useContext(User);
   const iconPassword = showPassword ? (
     <AiOutlineEye />
@@ -28,7 +28,7 @@ const FormSignUp = () => {
   const signUpUserHandler = async (e) => {
     e.preventDefault();
     setLoader((prev) => !prev);
-    const formHandler = submitForm(signUpFormSchema);
+    const formHandler = submitForm(signInFormSchema);
 
     // check if form is valid
     if (typeof formHandler !== 'function') {
@@ -37,22 +37,15 @@ const FormSignUp = () => {
       setLoader((prev) => !prev);
       return;
     }
-    const formData = new FormData();
-
-    // load form data
-    for (const key in fields) {
-      formData.append(key, fields[key]);
-    }
 
     // send http request
-    const response = await formHandler(() => createUser(formData));
-    console.log(response.message)
+    const response = await formHandler(() => loginUser(fields));
 
     // check status http
     if (response.status !== 200) {
       setLoader((prev) => !prev);
       setTypeMessage('error');
-      setMessage(response.data);
+      setMessage(response.message);
       return;
     }
 
@@ -65,7 +58,7 @@ const FormSignUp = () => {
       },
     });
     setTypeMessage('success');
-    setMessage('Utente creato con successo');
+    setMessage('Utente loggato con successo');
     setLoader((prev) => !prev);
   };
 
@@ -79,36 +72,10 @@ const FormSignUp = () => {
     <Fragment>
       <Toast type={typeMessage} message={message} onClose={clearToastHandler} />
       <form
-        className={classes.FormSignUp}
+        className={classes.FormSignIn}
         onSubmit={signUpUserHandler}
-        name='avatar'
-        enctype='multipart/form-data'
         noValidate
       >
-        <div className={classes.FormSignUp__row}>
-          <div className={classes.FormSignUp__col}>
-            <Field
-              label='Nome *'
-              type='text'
-              placeholder='Inserisci il tuo nome'
-              onFocus={() => clearErrorField('name')}
-              onChange={(e) => changeField('name', e.target.value.trim())}
-              value={fields.name}
-              error={errors.name?.required}
-            />
-          </div>
-          <div className={classes.FormSignUp__col}>
-            <Field
-              label='Cognome *'
-              type='text'
-              placeholder='Inserisci il tuo nome'
-              onFocus={() => clearErrorField('surname')}
-              onChange={(e) => changeField('surname', e.target.value.trim())}
-              value={fields.surname}
-              error={errors.surname?.required}
-            />
-          </div>
-        </div>
         <Field
           label='Email *'
           type='email'
@@ -129,16 +96,9 @@ const FormSignUp = () => {
           value={fields.password}
           error={errors.password?.required || errors.password?.isValid}
         />
-        <Field
-          label='Editore'
-          type='text'
-          placeholder='Inserisci il tuo editore o lascia vuoto se sei un freenlacer'
-          onChange={(e) => changeField('editorialBoard', e.target.value.trim())}
-          value={fields.signUpForm}
-        />
-        <div className={classes.FormSignUp__footer}>
+        <div className={classes.FormSignIn__footer}>
           <Button size='md' variant='primary'>
-            {loader ? <Loader /> : 'Registrati'}
+            {loader ? <Loader /> : 'Accedi'}
           </Button>
         </div>
       </form>
@@ -146,4 +106,4 @@ const FormSignUp = () => {
   );
 };
 
-export default FormSignUp;
+export default formSignIn;
