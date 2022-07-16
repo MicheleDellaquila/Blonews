@@ -1,0 +1,27 @@
+.Wishlist {
+  position: absolute;
+  bottom: -20px;
+  left: 32px;
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--color-bg);
+    box-shadow: 0 4px 12px rgba($color: #e0e0e0, $alpha: 0.3),
+      0 2px 6px rgba($color: #e0e0e0, $alpha: 0.15);
+    cursor: pointer;
+  }
+
+  &__icon {
+    font-size: 20px;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 575px) {
+    left: 16px;
+  }
+}

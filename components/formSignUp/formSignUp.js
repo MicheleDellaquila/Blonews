@@ -60,6 +60,7 @@ const FormSignUp = () => {
     updateUser({
       token: response.data.token,
       profile: {
+        id: response.data.user._id,
         avatar: response.data.user.avatar,
         fullName: response.data.user.name + ' ' + response.data.user.surname,
       },
@@ -69,7 +70,7 @@ const FormSignUp = () => {
     setLoader((prev) => !prev);
   };
 
-  // cleat toast
+  // clear toast
   const clearToastHandler = () => {
     setTypeMessage(null);
     setMessage(null);

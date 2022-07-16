@@ -1,10 +1,7 @@
-import { useContext } from 'react';
 import classes from './dropdownLink.module.scss';
-import { User } from '../../context/userContenxt';
+import { signOut } from 'next-auth/react';
 
-const DropdownLink = ({ title, onClose }) => {
-  const { clearUser } = useContext(User);
-
+const DropdownLink = ({ title }) => {
   return (
     <div className={classes.DropdownLink}>
       <header className={classes.DropdownLink__header}>
@@ -14,7 +11,7 @@ const DropdownLink = ({ title, onClose }) => {
         <ul className={classes.DropdownLink__list}>
           <li
             className={classes.DropdownLink__item}
-            onClick={() => clearUser()}
+            onClick={() => signOut()}
           >
             logout
           </li>

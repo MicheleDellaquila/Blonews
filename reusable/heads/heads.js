@@ -5,8 +5,8 @@ const Heads = ({ title, children }) => {
   return (
     <Head>
       <title>{title}</title>
-      <link rel='icon' href='./logo.png' />
-      <link rel='apple-touch-icon' href='./logo.png' />
+      <link rel='icon' href='/logo.png' />
+      <link rel='apple-touch-icon' href='/logo.png' />
       <meta charSet='utf-8' />
       <meta name='author' content='Blonews' />
       <meta name='viewport' content='width=device-width, initial-scale=1' />

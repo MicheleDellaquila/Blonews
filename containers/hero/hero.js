@@ -21,7 +21,6 @@ const Hero = ({ todayNews }) => {
         <AnotherNews news={todayNews} />
       </div>
       <div className={classes.Hero__overlay} />
-
     </div>
   );
 };

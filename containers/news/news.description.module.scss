@@ -1,0 +1,9 @@
+.NewsDescription {
+  margin-top: 16px;
+
+  &__text {
+    color: var(--color-title);
+    font-family: var(--color-text-fontFamily);
+    line-height: 1.5;
+  }
+}

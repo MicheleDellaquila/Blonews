@@ -49,7 +49,7 @@ const Card = ({
           </div>
         </div>
       </footer>
-      <Link href='/articolo/[titleNews]' as={`/articolo/${titleNews}`}>
+      <Link href='/articolo/[title]' as={`/articolo/${titleNews}`}>
         <a className={classes.Card__link} />
       </Link>
     </article>

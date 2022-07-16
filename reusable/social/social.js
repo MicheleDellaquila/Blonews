@@ -10,21 +10,21 @@ const Social = () => {
         className={classes.Social__link}
       >
         <img
-          src='./static/icons/facebook.png'
+          src='/static/icons/facebook.png'
           alt='facebook'
           className={classes.Social__image}
         />
       </a>
       <a href='/instagram' target='_blank' className={classes.Social__link}>
         <img
-          src='./static/icons/instagram.png'
+          src='/static/icons/instagram.png'
           alt='instagram'
           className={classes.Social__image}
         />
       </a>
       <a href='/twitter' target='_blank' className={classes.Social__link}>
         <img
-          src='./static/icons/twitter.png'
+          src='/static/icons/twitter.png'
           alt='twitter'
           className={classes.Social__image}
         />

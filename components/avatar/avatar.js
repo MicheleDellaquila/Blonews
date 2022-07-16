@@ -31,9 +31,7 @@ const Avatar = ({ name, image }) => {
       >
         <img src={image || './static/images/user.png'} alt={name} />
       </figure>
-      {showDropdown && (
-        <DropdownLink title={name} onClose={() => setShowDropdown(false)} />
-      )}
+      {showDropdown && <DropdownLink title={name} />}
     </div>
   );
 };

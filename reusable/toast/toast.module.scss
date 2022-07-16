@@ -27,10 +27,10 @@
 
   &__boxIcon {
     display: flex;
+    cursor: pointer;
   }
 
   &__icon > path {
     stroke: var(--color-bg);
-    cursor: pointer;
   }
 }

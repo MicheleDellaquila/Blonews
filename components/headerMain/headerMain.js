@@ -1,4 +1,3 @@
-import { useContext, useRef, useEffect, useState } from 'react';
 import classes from './headerMain.module.scss';
 import Button from '../../reusable/button/button';
 import { useRouter } from 'next/router';
@@ -6,11 +5,11 @@ import Logo from '../../reusable/logo/logo';
 import Searchbar from '../searchbar/searchbar';
 import HamburgerMenu from '../hamburgerMenu/hamburgerMenu';
 import SearchbarMenu from '../searchbarMenu/searchbarMenu';
-import { User } from '../../context/userContenxt';
 import Avatar from '../avatar/avatar';
+import { useSession } from 'next-auth/react';
 
 const HeaderMain = () => {
-  const { user } = useContext(User);
+  const { data: session } = useSession();
   const router = useRouter();
 
   return (
@@ -24,7 +23,7 @@ const HeaderMain = () => {
       <div className={classes.HeaderMain__right}>
         <SearchbarMenu />
         <HamburgerMenu />
-        {!user && (
+        {!session?.expires && (
           <Button
             size='sm'
             variant='primary'
@@ -33,8 +32,11 @@ const HeaderMain = () => {
             Accedi
           </Button>
         )}
-        {user && (
-          <Avatar name={user.profile.fullName} image={user.profile.avatar} />
+        {session?.expires && (
+          <Avatar
+            name={session.user.name + ' ' + session.user.surname}
+            image={session.user.image}
+          />
         )}
       </div>
     </div>

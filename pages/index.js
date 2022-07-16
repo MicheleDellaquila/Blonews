@@ -19,7 +19,7 @@ const Home = ({ todayNews, mostViewedNews, communityNews, techNews }) => {
 
 export async function getStaticProps() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_PATH}/`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_PATH}/home`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

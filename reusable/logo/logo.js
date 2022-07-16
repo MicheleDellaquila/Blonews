@@ -9,7 +9,7 @@ const Logo = ({ textMobile }) => {
   return (
     <Link href='/'>
       <figure className={classes.Logo}>
-        <img width={42} height={42} src='./static/icons/logo.png' />
+        <img width={42} height={42} src='/static/icons/logo.png' />
         <figcaption className={classText}>Blonews</figcaption>
       </figure>
     </Link>

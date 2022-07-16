@@ -5,10 +5,9 @@ import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import Button from '../../reusable/button/button';
 import useForm from '../../hooks/useForm';
 import { signInForm, signInFormSchema } from '../../utility/schemaForm';
-import { loginUser } from '../../utility/httpRequests';
 import Loader from '../../reusable/loader/loader';
 import Toast from '../../reusable/toast/toast';
-import { User } from '../../context/userContenxt';
+import { signIn } from 'next-auth/react';
 
 const formSignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,7 +16,6 @@ const formSignIn = () => {
   const [typeMessage, setTypeMessage] = useState(null);
   const { fields, errors, changeField, clearErrorField, submitForm } =
     useForm(signInForm);
-  const { updateUser } = useContext(User);
   const iconPassword = showPassword ? (
     <AiOutlineEye />
   ) : (
@@ -39,24 +37,22 @@ const formSignIn = () => {
     }
 
     // send http request
-    const response = await formHandler(() => loginUser(fields));
+    const response = await formHandler(() =>
+      signIn('credentials', {
+        redirect: false,
+        email: fields.email,
+        password: fields.password,
+      }),
+    );
 
-    // check status http
-    if (response.status !== 200) {
+    // check status next auth
+    if (response.error) {
       setLoader((prev) => !prev);
       setTypeMessage('error');
       setMessage(response.message);
       return;
     }
 
-    // save data's user in context state
-    updateUser({
-      token: response.data.token,
-      profile: {
-        avatar: response.data.user.avatar,
-        fullName: response.data.user.name + ' ' + response.data.user.surname,
-      },
-    });
     setTypeMessage('success');
     setMessage('Utente loggato con successo');
     setLoader((prev) => !prev);
