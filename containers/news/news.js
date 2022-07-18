@@ -1,3 +1,4 @@
+import Comments from '../comments/comments';
 import NewsArticle from './news.article';
 import NewsDescription from './news.description';
 
@@ -14,6 +15,7 @@ const News = ({ article }) => {
         author={article.author}
       />
       <NewsDescription />
+      <Comments newsId={article._id} comments={article.comments} />
     </div>
   );
 };

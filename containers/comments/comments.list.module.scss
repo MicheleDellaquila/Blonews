@@ -1,0 +1,18 @@
+.CommentsList {
+  margin-top: 64px;
+
+  &__title {
+    color: var(--color-title);
+    font-family: var(--color-title-fontFamily);
+    font-size: 31px;
+  }
+
+  &__container {
+    margin-top: 32px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+}

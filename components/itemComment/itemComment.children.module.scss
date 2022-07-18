@@ -1,0 +1,51 @@
+.ItemCommentChildren {
+  position: relative;
+  display: flex;
+  margin-left: 64px;
+  margin-top: 16px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -44px;
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border-bottom-left-radius: 20px;
+    border-left: 2px solid var(--color-text);
+    border-bottom: 2px solid var(--color-text);;
+  }
+
+  &__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+  }
+
+  &__details {
+    margin-left: 16px;
+  }
+
+  &__nameUser {
+    font-size: 20px;
+    color: var(--color-title);
+    font-family: var(--color-title-fontFamily);
+    margin-bottom: 8px;
+  }
+
+  &__date {
+    color: var(--color-text);
+    font-family: var(--color-text-fontFamily);
+    font-size: 13px;
+    margin-right: 16px;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  &__content {
+    color: var(--color-text);
+    font-family: var(--color-text-fontFamily);
+    line-height: 1.5;
+  }
+}

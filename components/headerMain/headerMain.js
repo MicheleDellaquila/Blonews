@@ -23,7 +23,7 @@ const HeaderMain = () => {
       <div className={classes.HeaderMain__right}>
         <SearchbarMenu />
         <HamburgerMenu />
-        {!session?.expires && (
+        {!session && (
           <Button
             size='sm'
             variant='primary'
@@ -32,10 +32,10 @@ const HeaderMain = () => {
             Accedi
           </Button>
         )}
-        {session?.expires && (
+        {session && (
           <Avatar
-            name={session.user.name + ' ' + session.user.surname}
-            image={session.user.image}
+            name={session.name + ' ' + session.surname}
+            image={session.image}
           />
         )}
       </div>

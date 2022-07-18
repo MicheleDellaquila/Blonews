@@ -22,7 +22,7 @@ const Wishlist = ({ articleId, inWishlist }) => {
       setLoader((prev) => !prev);
 
       // check if user is logging or not
-      if (!session.expires) {
+      if (!session) {
         setTypeMessage('error');
         setMessage(
           "Sessione scaduta. Loggati per poter inserire l'articolo nella wishlist",
@@ -32,14 +32,28 @@ const Wishlist = ({ articleId, inWishlist }) => {
 
       // check if article is in wishlist or not
       if (!isInWishlist) {
-        await addNewsToWishlist(session.token, session.user._id, articleId);
+        const response = await addNewsToWishlist(session.token, session.user._id, articleId);
+
+        // if go error
+        if (response.status !== 200) {
+          setTypeMessage('error');
+          setMessage(response.data.message);
+        }
+
         setIsInWishlist(true);
         setTypeMessage('success');
         setMessage('Articolo aggiunto nei tuoi preferiti');
         setLoader((prev) => !prev);
         return;
       } else {
-        await deleteNewsFromWishlist(session.token, articleId);
+        const response = await deleteNewsFromWishlist(session.token, articleId);
+
+        // if go error
+        if (response.status !== 200) {
+          setTypeMessage('error');
+          setMessage(response.data.message);
+        }
+
         setIsInWishlist(false);
         setTypeMessage('success');
         setMessage('Articolo eliminato dai tuoi preferiti');

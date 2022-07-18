@@ -29,7 +29,7 @@ const Avatar = ({ name, image }) => {
         className={classes.Avatar__image}
         onClick={() => setShowDropdown(true)}
       >
-        <img src={image || './static/images/user.png'} alt={name} />
+        <img src={image || '/static/images/user.png'} alt={name} />
       </figure>
       {showDropdown && <DropdownLink title={name} />}
     </div>

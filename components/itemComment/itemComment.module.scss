@@ -1,0 +1,14 @@
+.ItemComment {
+  margin-bottom: 32px;
+
+  &__boxResponse {
+    position: relative;
+    margin-left: 72px;
+    margin-top: 32px;
+
+    &::before {
+      content: '';
+      position: absolute;
+    }
+  }
+}
