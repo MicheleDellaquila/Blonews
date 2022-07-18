@@ -1,0 +1,52 @@
+.CategoryList__cardInfo {
+  position: relative;
+  background-image: url('../../public/static/images/categoryImage.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 16px;
+
+  .CategoryList__top {
+    padding: 32px;
+  }
+
+  .CategoryList__title {
+    font-size: 39px;
+    font-family: var(--color-title-fontFamily);
+    color: var(--color-title);
+    margin-bottom: 8px;
+    line-height: 1.25;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  .CategoryList__text {
+    font-size: 16px;
+    font-family: var(--color-title-fontFamily);
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  .CategoryList__bottom {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+  }
+
+  .CategoryList__totalArticles {
+    font-size: 39px;
+    font-family: var(--color-title-fontFamily);
+    color: var(--color-primary);
+  }
+
+  .CategoryList__postTotal {
+    font-family: var(--color-title-fontFamily);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 767px) {
+    height: 420px;
+  }
+}

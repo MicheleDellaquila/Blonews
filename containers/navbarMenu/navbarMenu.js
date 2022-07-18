@@ -9,25 +9,25 @@ const NavbarMenu = () => {
           <Link href='/'>Home</Link>
         </li>
         <li className={classes.NavbarMenu__item}>
-          <Link href='/finanza'>Finanza</Link>
+          <Link href='/categoria/finanza'>Finanza</Link>
         </li>
         <li className={classes.NavbarMenu__item}>
-          <Link href='/intrattenimento'>Intrattenimento</Link>
+          <Link href='/categoria/intrattenimento'>Intrattenimento</Link>
         </li>
         <li className={classes.NavbarMenu__item}>
-          <Link href='/cronaca'>Cronaca</Link>
+          <Link href='/categoria/cronaca'>Cronaca</Link>
         </li>
         <li className={classes.NavbarMenu__item}>
-          <Link href='/salute'>Salute</Link>
+          <Link href='/categoria/salute'>Salute</Link>
         </li>
         <li className={classes.NavbarMenu__item}>
-          <Link href='/scienza'>Scienza</Link>
+          <Link href='/categoria/scienza'>Scienza</Link>
         </li>
         <li className={classes.NavbarMenu__item}>
-          <Link href='/sports'>Sports</Link>
+          <Link href='/categoria/sports'>Sports</Link>
         </li>
         <li className={classes.NavbarMenu__item}>
-          <Link href='/tecnologia'>Tecnologia</Link>
+          <Link href='/categoria/tecnologia'>Tecnologia</Link>
         </li>
       </ul>
     </nav>

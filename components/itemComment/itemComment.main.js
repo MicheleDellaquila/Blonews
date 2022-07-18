@@ -48,8 +48,8 @@ const ItemCommentMain = ({
       );
 
       onResponse({ ...response.data.comment });
-      setLoader((prev) => !prev);
       setShowResponse(false)
+      setLoader((prev) => !prev);
     } catch (e) {
       setTypeMessage('error');
       setMessage(e.response?.data.message);
