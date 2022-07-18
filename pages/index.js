@@ -1,9 +1,9 @@
-import { Fragment } from 'react';
-import Banner from '../containers/banner/banner';
-import CommunityNews from '../containers/communityNews/communityNews';
-import Hero from '../containers/hero/hero';
-import MostViewedNews from '../containers/mostViewedNews/mostViewedNews';
-import TechNews from '../containers/techNews/techNews';
+import { Fragment } from "react";
+import Banner from "../containers/banner/banner";
+import CommunityNews from "../containers/communityNews/communityNews";
+import Hero from "../containers/hero/hero";
+import MostViewedNews from "../containers/mostViewedNews/mostViewedNews";
+import TechNews from "../containers/techNews/techNews";
 
 const Home = ({ todayNews, mostViewedNews, communityNews, techNews }) => {
   return (
@@ -20,9 +20,9 @@ const Home = ({ todayNews, mostViewedNews, communityNews, techNews }) => {
 export async function getStaticProps() {
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_PATH}/home`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
     const res = await response.json();
@@ -37,9 +37,8 @@ export async function getStaticProps() {
     };
   } catch (e) {
     return {
-      redirect: {
-        permanent: false,
-        destination: '/errore',
+      props: {
+        permanent: "",
       },
     };
   }

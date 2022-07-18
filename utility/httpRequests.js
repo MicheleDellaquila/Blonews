@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from "axios";
 
 export const createUser = async (formData) => {
   try {
     return await axios({
-      method: 'POST',
+      method: "POST",
       url: `${process.env.NEXT_PUBLIC_PATH}/signUp`,
       headers: {
-        Upload: 'users',
+        Upload: "users",
       },
       data: formData,
     });
@@ -18,10 +18,10 @@ export const createUser = async (formData) => {
 export const loginUser = async (data) => {
   try {
     return await axios({
-      method: 'POST',
+      method: "POST",
       url: `${process.env.NEXT_PUBLIC_PATH}/login`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       data: JSON.stringify(data),
     });
@@ -33,10 +33,10 @@ export const loginUser = async (data) => {
 export const deleteNewsFromWishlist = async (token, articleId) => {
   try {
     return await axios({
-      method: 'POST',
+      method: "POST",
       url: `${process.env.NEXT_PUBLIC_PATH}/deleteWishlist`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       data: JSON.stringify({ id: articleId }),
@@ -49,10 +49,10 @@ export const deleteNewsFromWishlist = async (token, articleId) => {
 export const addNewsToWishlist = async (token, userId, articleId) => {
   try {
     return await axios({
-      method: 'POST',
+      method: "POST",
       url: `${process.env.NEXT_PUBLIC_PATH}/saveWishlist`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       data: JSON.stringify({
@@ -68,10 +68,10 @@ export const addNewsToWishlist = async (token, userId, articleId) => {
 export const createComment = async (token, idArticle, idUser, textComment) => {
   try {
     return await axios({
-      method: 'POST',
+      method: "POST",
       url: `${process.env.NEXT_PUBLIC_PATH}/createComment`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       data: JSON.stringify({
@@ -91,14 +91,14 @@ export const responseComment = async (
   idArticle,
   idUserComment,
   idUser,
-  textComment,
+  textComment
 ) => {
   try {
     return await axios({
-      method: 'PATCH',
+      method: "PATCH",
       url: `${process.env.NEXT_PUBLIC_PATH}/responseComment`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
       data: JSON.stringify({
@@ -107,6 +107,36 @@ export const responseComment = async (
         idUser: idUser,
         content: textComment,
       }),
+    });
+  } catch (e) {
+    return e;
+  }
+};
+
+export const getMostNew = async (category) => {
+  try {
+    return await axios({
+      method: "GET",
+      url: `${process.env.NEXT_PUBLIC_PATH}/categoria/${category}/mostNew`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: null,
+    });
+  } catch (e) {
+    return e;
+  }
+};
+
+export const getPopular = async (category) => {
+  try {
+    return await axios({
+      method: "GET",
+      url: `${process.env.NEXT_PUBLIC_PATH}/categoria/${category}/popular`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: null,
     });
   } catch (e) {
     return e;
